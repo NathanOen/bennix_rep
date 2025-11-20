@@ -5,7 +5,7 @@ const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.logo}>
-                <h2>Bennix</h2>
+                <img src="/logo.png" alt="Bennix Logo" style={{ height: '40px' }} />
             </div>
             <nav className={styles.nav}>
                 {categories.map((category) => (
