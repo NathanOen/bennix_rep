@@ -80,10 +80,10 @@
 }
 
 .solutionCard {
-  border: 2px solid #32CD32;
-  /* Lime Green */
-  box-shadow: 0 0 10px #32CD32, 0 0 20px #32CD32;
-  /* Neon Glow */
+  border: 2px solid #00FFFF;
+  /* Cyan/Blue Neon */
+  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+  /* Blue Neon Glow */
 }
 
 .thumbnailWrapper {
