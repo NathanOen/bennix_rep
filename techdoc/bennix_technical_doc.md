@@ -6,7 +6,7 @@ Bennix is a pwa to answer the need of Indonesia Investment PodCaster Bennix (ref
 The premise is to have solution on his YT video that we can provide for them in Indonesia. One of the video is about MBG Makanan Bergizi Gratis (ref: https://www.youtube.com/watch?v=MBG_Makanan_Bergizi_G Gratis). This program that also align with me. 
 
 ## Story
-MBG Makanan Bergizi Gratis on one of Bennix video (see ref: https://www.youtube.com/watch?v=MBG_Makanan_Bergizi_G Gratis) really need a solution. I promised to build it. The list of application would be index.html a one page application that allow user to "play" that application from the list of his video that we will list in the application bennix.pasar.app. 
+MBG Makanan Bergizi Gratis on one of Bennix video (see ref: https://www.youtube.com/watch?v=MBG_Makanan_Bergizi_G Gratis) really need a solution. I promised to build it. The list of application would be index.html a one page application that allow user to "play" that application from the list of his video that we will list in the application bennix.pasar.app. This is video: https://www.youtube.com/watch?v=jfQ8dPeQ52w
 
 
 ## Iteration1
@@ -35,4 +35,15 @@ MBG Makanan Bergizi Gratis on one of Bennix video (see ref: https://www.youtube.
     *   Automatic builds and deployments on push to `main`.
 
 ## Iteration2
+*   **Objective**: Implement the "Play" functionality for Solution videos, specifically the MBG (Makanan Bergizi Gratis) program.
+*   **Features**:
+    *   **Video Detail Page**: Dynamic routing to view specific videos.
+    *   **YouTube Player**: Embed the YouTube video for playback.
+    *   **Solution Playground**: An interactive area for "Solution" category videos.
+    *   **MBG Mini-App**: A specific interactive tool for the MBG video (e.g., a cost/logistics simulator).
+*   **UI Design**:
+    *   **Layout**: Video player at the top (or left), interactive solution app below (or right).
+    *   **Navigation**: Back button to return to the video list.
+
+
 ## Iteration3

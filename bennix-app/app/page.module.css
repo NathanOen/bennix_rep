@@ -131,6 +131,75 @@
   overflow: hidden;
 }
 
+/* Video Player Styles */
+.videoPlayerWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background-color: #000;
+}
+
+.videoPlayerWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* MBG App Styles */
+.mbgAppContainer {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  margin-top: 20px;
+}
+
+.mbgAppContainer h2 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.placeholderTool {
+  background-color: #2a2a2a;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px dashed #555;
+  color: #888;
+}
+
+/* Detail Page Layout */
+.detailContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+}
+
+.backButton:hover {
+  color: #fff;
+}
+
 .meta {
   display: flex;
   align-items: center;
