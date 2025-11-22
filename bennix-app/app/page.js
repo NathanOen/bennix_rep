@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Sidebar from '@/components/Sidebar';
 import VideoCard from '@/components/VideoCard';
+import SkeletonCard from '@/components/SkeletonCard';
 import { videoService } from '@/services/videoService';
 
 export default function Home() {
@@ -19,10 +20,17 @@ export default function Home() {
             const fetchedCategories = await videoService.getCategories('bennix');
 
             setVideos(fetchedVideos);
-            // Ensure "All Video" and "Video With Solution" are always present if not in DB or to enforce order
-            // For now, assuming DB returns raw categories, we might want to prepend "All Video" manually if it's not in DB
-            // The seed script adds "All Video" etc. so it should be fine, but let's handle it safely.
-            setCategories(fetchedCategories.length > 0 ? fetchedCategories : ['All Video']);
+
+            // Define the desired order
+            const orderedCategories = ['All Video', 'Video With Solution'];
+
+            // Get categories from DB that are NOT in the ordered list
+            const otherCategories = fetchedCategories.filter(c => !orderedCategories.includes(c));
+
+            // Combine: Ordered first, then the rest from DB
+            const finalCategories = [...orderedCategories, ...otherCategories];
+
+            setCategories(finalCategories);
             setLoading(false);
         };
 
@@ -34,7 +42,25 @@ export default function Home() {
         : videos.filter(video => video.category === selectedCategory || (selectedCategory === 'Video With Solution' && video.category === 'Solution'));
 
     if (loading) {
-        return <div className={styles.container}><div className={styles.main}>Loading...</div></div>;
+        return (
+            <div className={styles.container}>
+                <Sidebar
+                    categories={['All Video', 'Video With Solution', 'Analysis', 'Investment', 'Mindset']}
+                    selectedCategory={selectedCategory}
+                    onSelectCategory={() => { }}
+                />
+                <main className={styles.main}>
+                    <div className={styles.header}>
+                        <h1>Loading...</h1>
+                    </div>
+                    <div className={styles.grid}>
+                        {[...Array(6)].map((_, i) => (
+                            <SkeletonCard key={i} />
+                        ))}
+                    </div>
+                </main>
+            </div>
+        );
     }
 
     return (

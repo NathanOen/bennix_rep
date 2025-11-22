@@ -1,4 +1,3 @@
-
 # Bennix Technical Doc
 
 ## Introduction
@@ -61,3 +60,16 @@ MBG Makanan Bergizi Gratis on one of Bennix video (see ref: https://www.youtube.
     *   **Data Seeding**: Migration script to upload current static `videos.js` data to Firestore under the `bennix` tenant.
     *   **Service Layer**: Abstract data fetching to switch between static/live data easily.
     *   **Dynamic Content**: App fetches content based on the active tenant.
+
+## Iteration4
+*   **Objective**: Polish the User Interface and ensure a seamless mobile experience.
+*   **Features**:
+    *   **Skeleton Loading**: Replaced text loading with a skeleton UI for better perceived performance.
+    *   **Animations**: Added hover effects (lift, scale, glow) to video cards and buttons.
+    *   **Mobile Optimization**:
+        *   **Responsive Filter Bar**: Sidebar transforms into a horizontal scrollable bar on mobile.
+        *   **Viewport Configuration**: Added proper viewport meta tags for responsive scaling.
+    *   **UI Refinements**:
+        *   **Neon Glow**: Enhanced the "Solution" card glow to a strong Netflix Red.
+        *   **Category Sorting**: Enforced specific order ("All Video", "Video With Solution", etc.).
+        *   **Typography**: Enabled font smoothing and customized scrollbars.

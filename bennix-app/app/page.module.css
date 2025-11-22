@@ -76,14 +76,98 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background-color: #252525;
 }
 
 .solutionCard {
-  border: 2px solid #00FFFF;
-  /* Cyan/Blue Neon */
-  box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
-  /* Blue Neon Glow */
+  border: 1px solid #E50914;
+  /* Netflix Red */
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+  /* Stronger Red Glow */
+}
+
+.solutionCard:hover {
+  box-shadow: 0 0 35px rgba(229, 9, 20, 0.8);
+  /* Even stronger on hover */
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Skeleton Loading */
+.skeletonCard {
+  cursor: default;
+  pointer-events: none;
+}
+
+.skeletonThumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonContent {
+  padding: 12px;
+}
+
+.skeletonTitle {
+  height: 20px;
+  width: 80%;
+  background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeletonMeta {
+  height: 14px;
+  width: 60%;
+  background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Category Pills Animation */
+.categoryButton {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #aaaaaa;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.categoryButton:hover {
+  background-color: #3a3a3a;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.activeCategory {
+  background-color: #3ea6ff;
+  /* YouTube Blue */
+  color: #000000;
+  font-weight: 600;
+}
+
+.activeCategory:hover {
+  background-color: #65b8ff;
 }
 
 .thumbnailWrapper {
@@ -221,13 +305,66 @@
   font-size: 0.8rem;
 }
 
+/* Responsive Grid */
 @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
   .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #333;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .logo {
     display: none;
-    /* Mobile handling to be improved later */
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .navItem {
+    margin-bottom: 0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+  }
+
+  .navItem.active {
+    background-color: #E50914;
+    color: white;
+    border-color: #E50914;
   }
 
   .main {
     margin-left: 0;
+    padding: 10px;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 10px;
   }
 }
