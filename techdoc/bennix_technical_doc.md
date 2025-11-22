@@ -1,3 +1,4 @@
+
 # Bennix Technical Doc
 
 ## Introduction
@@ -47,3 +48,16 @@ MBG Makanan Bergizi Gratis on one of Bennix video (see ref: https://www.youtube.
 
 
 ## Iteration3
+
+*   **Objective**: Design and implement a scalable, multi-tenant Firestore database architecture to support the Bennix app and future applications.
+*   **Architecture & Design**:
+    *   **Multi-tenancy Strategy**: Root-level `tenants` collection to isolate data per application.
+    *   **Schema**:
+        *   `tenants/{tenantId}`: Tenant configuration (branding, theme, settings).
+        *   `tenants/{tenantId}/videos/{videoId}`: Video content.
+        *   `tenants/{tenantId}/categories/{categoryId}`: Category definitions.
+*   **Features**:
+    *   **Firestore Integration**: Configure Firebase SDK in the Next.js app.
+    *   **Data Seeding**: Migration script to upload current static `videos.js` data to Firestore under the `bennix` tenant.
+    *   **Service Layer**: Abstract data fetching to switch between static/live data easily.
+    *   **Dynamic Content**: App fetches content based on the active tenant.

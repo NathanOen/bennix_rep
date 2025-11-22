@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { videos } from '../../../data/videos';
+import { videoService } from '../../../services/videoService';
 import VideoPlayer from '../../../components/VideoPlayer';
 import MBGApp from '../../../components/solutions/MBGApp';
 import styles from '../../../app/page.module.css';
 
 export default async function VideoDetail({ params }) {
     const { id } = await params;
-    const video = videos.find((v) => v.id === id);
+    const video = await videoService.getVideoById('bennix', id);
 
     if (!video) {
         return <div className={styles.container}>Video not found</div>;
